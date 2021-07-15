@@ -1,5 +1,5 @@
-# The Apparel Store
+# Apparel Store
 
 ## Features
-Checkout workflow
-Fake Store API calls
+Checkout workflow  
+Fake Store API calls  
