@@ -1,6 +1,8 @@
 // async request for data from the Fake Store API
-export function fetchCount(amount = 1) {
+export function fetchAll() {
   return new Promise((resolve) =>
-    setTimeout(() => resolve({ data: amount }), 500)
+    fetch('https://fakestoreapi.com/products')
+      .then(response => response.json())
+      .then(data => resolve(data))
   );
 }
