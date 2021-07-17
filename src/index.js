@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import './index.css';
@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { Home } from './Home';
 import { Shop } from './features/shop/Shop';
-
+import { fetchAll } from './features/shop/shopAPI';
 
 const Header = () => <div>
   <Link to="/">Home</Link>
@@ -24,16 +24,34 @@ const Footer = () => <div>
 </div>;
 const Citations = () => <h1>Citations</h1>;
 const Thumbnail = () => <h1>Thumbnail</h1>;
-const Detail = () => <h1>Detail</h1>;
+const Detail = () => {
+  return (
+    <main> 
+      <h1>Detail</h1>
+    </main>
+  )
+};
+
 const Cart = () => <h1>Cart</h1>;
 const Checkout = () => <h1>Checkout</h1>;
 const Success = () => <h1>Success</h1>;
 const Failure = () => <h1>Failure</h1>;
-//
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { detailRoutes: [] };
+  }
+  componentDidMount() {
+    let detailPaths = [""]
+    fetchAll().then((data)=>{
+      detailPaths = data.map((item) => ("/" + item.id));
+      this.setState({detailRoutes: detailPaths})
+    });
+  }
+  render() {
+    return (
       <Router>
         <Header />
         <Switch>
@@ -43,11 +61,24 @@ ReactDOM.render(
           <Route path="/success" component={Success} />
           <Route path="/failure" component={Failure} />
           <Route path="/citations" component={Citations} />
+          {
+            this.state.detailRoutes.map((p) => (
+              <Route path={p} key={p} component={Detail} />
+            ))
+          }
           <Route path="/" component={Home} />
         </Switch>
         <Footer />
       </Router>
-     </Provider>
+    )
+  }
+}
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

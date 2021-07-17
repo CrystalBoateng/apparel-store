@@ -133,7 +133,7 @@ export function Shop() {
         <h2>Products</h2>
         {
           filteredApparel.map((item) => (
-            <a href="/" key={item.id}>
+            <a href={"/" + item.id} key={item.id}>
               <img src={item.image} width="100px"/>
               <p>{item.title}</p>
               <p>${item.price}</p>
