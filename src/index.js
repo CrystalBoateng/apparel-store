@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { Home } from './Home';
 import { Shop } from './features/shop/Shop';
+import { Detail } from './components/detail/Detail';
 import { fetchAll } from './features/shop/shopAPI';
 
 const Header = () => <div>
@@ -24,14 +25,6 @@ const Footer = () => <div>
 </div>;
 const Citations = () => <h1>Citations</h1>;
 const Thumbnail = () => <h1>Thumbnail</h1>;
-const Detail = () => {
-  return (
-    <main> 
-      <h1>Detail</h1>
-    </main>
-  )
-};
-
 const Cart = () => <h1>Cart</h1>;
 const Checkout = () => <h1>Checkout</h1>;
 const Success = () => <h1>Success</h1>;

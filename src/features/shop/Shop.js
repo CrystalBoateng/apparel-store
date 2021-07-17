@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { store } from '../../app/store.js';
+import { fetchAll } from './shopAPI';
 import {
   fetchAllItems,
   fillFilteredItems,
@@ -12,9 +14,7 @@ import {
   selectAllApparel,
   selectFilteredApparel
 } from './shopSlice';
-import { store } from '../../app/store.js';
 import './Shop.css';
-import { fetchAll } from './shopAPI';
 
 export function Shop() {
   const allApparel = useSelector(selectAllApparel);
@@ -79,9 +79,7 @@ export function Shop() {
     // pulls list view data from the API
     fetchAll()
       .then((data)=>{ dispatch(fetchAllItems(data)); })
-      // .then(()=>{ console.log("allApparel:"); console.log(store.getState().shop.allItems) })
-      .then(()=>{ dispatch(fillFilteredItems(store.getState().shop.allItems)) })
-      // .then(()=>{ console.log("filteredApparel:"); console.log(store.getState().shop.allItems) })
+      .then(()=>{ dispatch(fillFilteredItems(store.getState().shop.allItems)) });
     // shows all categories by default
     let boxes = document.getElementsByClassName("checkbox");
     for (let i = 0; i < boxes.length; i++) {
