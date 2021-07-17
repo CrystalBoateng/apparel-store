@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice, configureStore } from '@reduxjs/toolkit'
 import { fetchAll } from './shopAPI';
 
 const initialState = {
-  allItems: [{"id":0,"title":"","price":0.00,"description":"","category":"","image":"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"}]
+  allItems: [],
+  filteredItems: [{"id":0,"title":"","price":"","description":"","category":"","image":"https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg"}]
 };
 
 export const shopSlice = createSlice({
@@ -10,13 +11,53 @@ export const shopSlice = createSlice({
   initialState,
   reducers: {
     fetchAllItems: (state, action) => {
-      state.allItems = action.payload
+      state.allItems = action.payload;
+    },
+    fillFilteredItems: (state, action) => {
+      state.filteredItems = action.payload;
+    },
+    updateMin: (state, action) => {
+      state.filteredItems = state.filteredItems.filter(
+        item => item.price >= action.payload
+      );
+    },
+    updateMax: (state, action) => {
+      state.filteredItems = state.filteredItems.filter(
+        item => item.price <= action.payload
+      );
+    },
+    updateCategories: (state, action) => {
+      state.filteredItems = state.allItems.filter(
+        (item) => (action.payload.indexOf(item.category) >= 0)
+      );
+    },
+    clearCategories: (state) => {},
+    updateSearch: (state, action) => {
+      state.filteredItems = state.filteredItems.filter(
+        (item) => (item.title.toLowerCase()
+          .indexOf(action.payload.toLowerCase()) >= 0)
+      );
+    },
+    sortPrice: (state, action) => {
+      const compare = (a, b) => {
+        let comparison = 0;
+        if (a.price > b.price) {
+          comparison = 1;
+        } else if (a.price < b.price) {
+          comparison = -1;
+        }
+        if (action.payload === "sort-highest-to-lowest")
+          return comparison * -1;
+        return comparison;
+      }
+      state.filteredItems = state.filteredItems.sort(compare);
     }
   },
 });
 
-export const { fetchAllItems } = shopSlice.actions;
+export const { fetchAllItems, fillFilteredItems, updateMin, updateMax, updateCategories, clearCategories, updateSearch, sortPrice } = shopSlice.actions;
 
 export const selectAllApparel = (state) => state.shop.allItems;
+export const selectFilteredApparel = (state) => state.shop.filteredItems;
 
 export default shopSlice.reducer;
