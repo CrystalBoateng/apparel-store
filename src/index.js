@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import { Home } from './Home';
 import { Shop } from './features/shop/Shop';
 import { Cart } from './features/cart/Cart';
+import { Checkout } from './features/checkout/Checkout';
 import { Thumbnail } from './components/thumbnail/Thumbnail';
 import { Detail } from './components/detail/Detail';
 import { fetchAll } from './features/shop/shopAPI';
@@ -28,7 +29,6 @@ const Footer = () => <div>
   <Link to="/citations">Citations</Link>
 </div>;
 const Citations = () => <h1>Citations</h1>;
-const Checkout = () => <h1>Checkout</h1>;
 const Success = () => <h1>Success</h1>;
 const Failure = () => <h1>Failure</h1>;
 
