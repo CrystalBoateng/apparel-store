@@ -18,13 +18,13 @@ export const cartSlice = createSlice({
           state.items.splice(action.payload.number, 1);
       } else if (action.payload.method === "lastInstance") {
         // loops backwards, removes last instance of the product from cart array
-        for (let i = state.items.length; i >= 0;  i--) {
-          console.log("i="+i);
-          if (state.items[i].id === action.payload.number)
-            state.items.splice(state.items.length - 1, 1);
+        for (let i = state.items.length-1; i >= 0;  i--) {
+          if (state.items[i].id == action.payload.number) {
+            state.items.splice(state.items.length + 1 - i, 1);
+            break;
+          }
         }
       }
-      console.log(state.items);
     },
     addItem: (state, action) => {
       state.items = state.items.concat(action.payload);
@@ -33,6 +33,5 @@ export const cartSlice = createSlice({
 });
 
 export const { removeItem, addItem } = cartSlice.actions;
-export const selectCart = (state) => state.cart.value;
 
 export default cartSlice.reducer;

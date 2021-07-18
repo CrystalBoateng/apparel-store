@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { store } from '../../app/store';
+import { Thumbnail } from '../../components/thumbnail/Thumbnail';
 import { fetchAll } from './shopAPI';
 import {
   fetchAllItems,
@@ -130,13 +131,15 @@ export function Shop() {
       <main id="products" className="thumbnails">
         <h2>Products</h2>
         {
-          filteredApparel.map((item) => (
-            <a href={"/" + item.id} key={item.id}>
-              <img src={item.image} width="100px"/>
-              <p>{item.title}</p>
-              <p>${item.price}</p>
-              <p>{item.category}</p>
-            </a>
+          filteredApparel.map((item, index) => (
+            <Thumbnail
+              key={index}
+              id={item.id}
+              src={item.image}
+              title={item.title}
+              price={item.price}
+              category={item.category}
+            / >
           )
         )}
       </main>
