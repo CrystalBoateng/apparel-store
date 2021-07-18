@@ -35,10 +35,25 @@ export const checkoutSlice = createSlice({
         "email": action.payload.email,
       }
     },
+    clearCustomer: (state) => {
+      state.customer = {
+        "nameFirst": "",
+        "nameLast": "",
+        "addressStreet": "",
+        "addressCity": "",
+        "addressState": "",
+        "addressZip": "",
+        "cardNumber": "",
+        "cardExpiration": "",
+        "cardCvv": "",
+        "phone": "",
+        "email": "",
+      }
+    },
   },
 });
 
-export const { updateCustomer } = checkoutSlice.actions;
+export const { updateCustomer, clearCustomer } = checkoutSlice.actions;
 export const selectCustomer = (state) => state.checkout.customer;
 
 export default checkoutSlice.reducer;

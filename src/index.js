@@ -11,6 +11,7 @@ import { Cart } from './features/cart/Cart';
 import { Checkout } from './features/checkout/Checkout';
 import { Thumbnail } from './components/thumbnail/Thumbnail';
 import { Detail } from './components/detail/Detail';
+import { Success } from './components/success/Success';
 import { fetchAll } from './features/shop/shopAPI';
 
 const Header = () => <div>
@@ -29,7 +30,6 @@ const Footer = () => <div>
   <Link to="/citations">Citations</Link>
 </div>;
 const Citations = () => <h1>Citations</h1>;
-const Success = () => <h1>Success</h1>;
 const Failure = () => <h1>Failure</h1>;
 
 

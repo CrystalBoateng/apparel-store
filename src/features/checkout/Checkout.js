@@ -13,7 +13,7 @@ export function Checkout(props) {
   const [addressStreet, setAddressStreet] = useState("1111 Walnut St.");
   const [addressCity, setAddressCity] = useState("Cincinnati");
   const [addressState, setAddressState] = useState("Ohio");
-  const [addressZip, setAddressZip] = useState("27205");
+  const [addressZip, setAddressZip] = useState("55555");
   const [cardNumber, setCardNumber] = useState("5555 5555 5555 5555");
   const [cardExpiration, setCardExpiration] = useState("55/55");
   const [cardCvv, setCardCvv] = useState("555");
@@ -71,7 +71,12 @@ export function Checkout(props) {
       if (res.status == 200) {
         // manually sends customer details to "/success" as props so \
         // it can safely erase the checkout slice data
-        props.history.push({pathname: "/success", state: customerDetails});
+        props.history.push({
+          pathname: "/success", state: {
+            person: customerDetails,
+            order: store.getState().cart.items.slice()
+          }
+        });
       } else {
         props.history.push({pathname: "/failure"});
       }
