@@ -1,5 +1,4 @@
-import { createAsyncThunk, createSlice, configureStore } from '@reduxjs/toolkit';
-import { fetchAll } from './shopAPI';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   allItems: [],
@@ -46,7 +45,7 @@ export const shopSlice = createSlice({
         } else if (a.price < b.price) {
           comparison = -1;
         }
-        if (action.payload === "sort-highest-to-lowest")
+        if (action.payload === "form-sort-highest-price")
           return comparison * -1;
         return comparison;
       }

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { store } from '../../app/store.js';
+import { store } from '../../app/store';
 import { fetchAll } from './shopAPI';
 import {
   fetchAllItems,
@@ -72,7 +72,7 @@ export function Shop() {
   }
   const handleSort = (e) => {
     // sorts filteredApparel
-    dispatch(sortPrice(e.target.name))
+    dispatch(sortPrice(e.target.closest("button").id))
   }
 
   useEffect(() => {
@@ -116,13 +116,13 @@ export function Shop() {
 
         <section>
           <h3>Sort</h3>
-          <button id="form-sort-highest-price">
+          <button id="form-sort-highest-price" onClick={handleSort}>
             <img alt={"Highest-to-lowest"} name="sort-highest-to-lowest"
-              onClick={handleSort} src={"/img/placeholder.png"} />
+              src={"/img/placeholder.png"} />
            </button>
-          <button id="form-sort-lowest-price">
+          <button id="form-sort-lowest-price" onClick={handleSort}>
             <img alt={"Lowest-to-highest"} name="sort-lowest-to-lowest"
-              onClick={handleSort} src={"/img/placeholder.png"} />
+              src={"/img/placeholder.png"} />
            </button>
         </section>
       </aside>

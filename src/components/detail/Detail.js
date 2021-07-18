@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { store } from '../../app/store.js';
+import { useDispatch } from 'react-redux';
 import { fetchOne } from './detailAPI';
 import './Detail.css';
 
@@ -20,9 +19,8 @@ export function Detail(props) {
         setDescription(data.description);
         setCategory(data.category);
         setImage(data.image);
-      })
+      });
   });
-
   return (
     <main> 
       <h1>{title}</h1>

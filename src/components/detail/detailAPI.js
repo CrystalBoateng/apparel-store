@@ -1,8 +1,7 @@
-import React from 'react';
 // async get request to the Fake Store API
-export const fetchOne = (props) => {
+export const fetchOne = (id) => {
   return new Promise((resolve) =>
-    fetch('https://fakestoreapi.com/products'+ props)
+    fetch('https://fakestoreapi.com/products'+ id)
       .then(response => response.json())
       .then(data => resolve(data))
   );
