@@ -1,34 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { SubtractAdd } from '../subtract-add/SubtractAdd';
 import { fetchOne } from './detailAPI';
 import './Detail.css';
 
-export function Detail(props) {
-  const dispatch = useDispatch();
-  let [title , setTitle] = useState("");
-  let [price , setPrice] = useState("");
-  let [description , setDescription] = useState("");
-  let [category , setCategory] = useState("");
-  let [image , setImage] = useState("");
-  useEffect(() => {
+export class Detail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      title: "",
+      price: "",
+      description: "",
+      category: "",
+      image: "",
+      id: "",
+    };
+  }
+  componentDidMount() {
     // pulls detail view data from the API, for the item in the URL path
-    fetchOne(props.location.pathname)
+    fetchOne(this.props.location.pathname)
       .then((data)=>{ 
-        setTitle(data.title);
-        setPrice(data.price);
-        setDescription(data.description);
-        setCategory(data.category);
-        setImage(data.image);
-      });
-  });
-  return (
-    <main> 
-      <h1>{title}</h1>
-        {image}
-        {price}
-        {category}
-        {description}
-        <p>-/+ icons</p>
-    </main>
-  );
+        this.setState({
+          title: data.title,
+          price: data.price,
+          description: data.description,
+          category: data.category,
+          image: data.image,
+          id: data.id,
+        });
+    });
+  }
+  render() {
+    return (
+      <main> 
+        <h1>{this.state.title}</h1>
+        <img src={this.state.image} />
+        <p id="detail-price">{this.state.price}</p>
+        <p id="detail-category">{this.state.category}</p>
+        <p id="detail-description">{this.state.description}</p>
+        <p id="detail-id" data-id={this.state.id}>Product number: {this.state.id}</p>
+        <SubtractAdd />
+      </main>
+    );
+  }
 }
