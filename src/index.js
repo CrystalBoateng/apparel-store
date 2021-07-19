@@ -1,36 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import './index.css';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+import { Header } from './components/header/Header';
+import { Footer } from './components/footer/Footer';
 import { Home } from './Home';
 import { Shop } from './features/shop/Shop';
 import { Cart } from './features/cart/Cart';
 import { Checkout } from './features/checkout/Checkout';
 import { Detail } from './components/detail/Detail';
 import { Success } from './components/success/Success';
+import { Failure } from './components/failure/Failure';
 import { fetchAll } from './features/shop/shopAPI';
+import './index.css';
 
-const Header = () => <div>
-  <nav>
-    <Link to="/">Home</Link>
-    <Link to="/shop">Shop</Link>
-    <Link to="/checkout">Checkout</Link>
-  </nav>
-  <Link to="/cart">cart_icon</Link>
-</div>;
-const Footer = () => <div>
-  <p>Copyright 2021</p>
-  <Link to="/">Home</Link>
-  <Link to="/shop">Shop</Link>
-  <Link to="/checkout">Checkout</Link>
-  <Link to="/citations">Citations</Link>
-</div>;
 const Citations = () => <h1>Citations</h1>;
-const Failure = () => <h1>Failure</h1>;
-
 
 class App extends React.Component {
   constructor(props) {
