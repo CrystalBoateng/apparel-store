@@ -2,19 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { removeItem, addItem } from '../../features/cart/cartSlice';
 import { fetchOne } from '../detail/detailAPI';
-import './Thumbnail.css';
+import './LargeThumbnail.css';
 
-export function Thumbnail(props) {
+export function LargeThumbnail(props) {
   const dispatch = useDispatch();
   useEffect(() => {
   });
   const handleClick = (e) => {
-    // identifies the product clicked on and what to do with it
+    // identifies the product number clicked on and what to do with it
     const productId = e.target.closest("button")
       .firstChild.parentElement.parentElement.parentElement
       .firstChild.href.split("/").slice(-1)[0];
     const action = e.target.closest("button").firstChild.name;
-    const userIsOnCartPage = window.location.href.split("/").slice(-1)[0] === "cart";
+    const userIsOnCartPage = window.location.href
+      .split("/").slice(-1)[0] === "cart";
 
     // adds or removes it from the cart
     if (action === "remove-from-cart") {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { store } from '../../app/store';
 import { useDispatch } from 'react-redux';
+import { SmallThumbnail } from '../../components/small-thumbnail/SmallThumbnail';
 import { clearCart } from '../../features/cart/cartSlice';
 import { clearCustomer } from '../../features/checkout/checkoutSlice';
 import './Success.css';
@@ -24,11 +25,12 @@ export function Success (props) {
       <p><span>Email</span>: {p.email}</p>
       {
         o.map((item, index) => (
-          <div key={index}>
-            <img src={item.image} width="20"/>
-            <p>${item.price}</p>
-            <p>{item.title}</p>
-          </div>
+          <SmallThumbnail 
+            key={index}
+            src={item.image}
+            price={item.price}
+            title={item.title}
+          / >
         )
       )}
     </main>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { store } from '../../app/store.js';
+import { SmallThumbnail } from '../../components/small-thumbnail/SmallThumbnail';
 import { updateCustomer, selectCustomer } from './checkoutSlice';
 import './Checkout.css';
 
@@ -136,11 +137,12 @@ export function Checkout(props) {
       <div id="checkout-items-wrapper">
       {
         store.getState().cart.items.map((item, index) => (
-          <div key={index}>
-            <img src={item.image} width="100"/>
-            <p>${item.price}</p>
-            <p>{item.title}</p>
-          </div>
+          <SmallThumbnail 
+            key={index}
+            src={item.image}
+            price={item.price}
+            title={item.title}
+          />
         )
       )}
       </div>

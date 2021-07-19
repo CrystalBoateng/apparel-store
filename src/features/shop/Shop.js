@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { store } from '../../app/store';
-import { Thumbnail } from '../../components/thumbnail/Thumbnail';
+import { LargeThumbnail } from '../../components/large-thumbnail/LargeThumbnail';
 import { fetchAll } from './shopAPI';
 import {
   fetchAllItems,
@@ -132,18 +132,17 @@ export function Shop() {
         <h2>Products</h2>
         {
           filteredApparel.map((item, index) => (
-            <Thumbnail
+            <LargeThumbnail
               key={index}
               id={item.id}
               src={item.image}
               title={item.title}
               price={item.price}
               category={item.category}
-            / >
+            />
           )
         )}
       </main>
-
     </div>
   );
 }

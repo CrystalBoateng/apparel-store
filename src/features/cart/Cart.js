@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { store } from '../../app/store.js';
-import { Thumbnail } from '../../components/thumbnail/Thumbnail';
+import { LargeThumbnail } from '../../components/large-thumbnail/LargeThumbnail';
 import './Cart.css';
 
 export function Cart(props) {
@@ -16,7 +16,7 @@ export function Cart(props) {
       <div id="cart-wrapper">
       {
         store.getState().cart.items.map((item, index) => (
-          <Thumbnail
+          <LargeThumbnail
             key={index}
             id={item.id}
             src={item.image}

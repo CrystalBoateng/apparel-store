@@ -9,7 +9,6 @@ import { Home } from './Home';
 import { Shop } from './features/shop/Shop';
 import { Cart } from './features/cart/Cart';
 import { Checkout } from './features/checkout/Checkout';
-import { Thumbnail } from './components/thumbnail/Thumbnail';
 import { Detail } from './components/detail/Detail';
 import { Success } from './components/success/Success';
 import { fetchAll } from './features/shop/shopAPI';
