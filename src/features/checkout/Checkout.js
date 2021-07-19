@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { store } from '../../app/store.js';
 import { SmallThumbnail } from '../../components/small-thumbnail/SmallThumbnail';
 import { updateCustomer, selectCustomer } from './checkoutSlice';
+import { pushOrder } from './checkoutAPI';
 import './Checkout.css';
 
 export function Checkout(props) {
@@ -63,25 +64,25 @@ export function Checkout(props) {
     }
     // dispatches customer info to the store
     dispatch(updateCustomer(customerDetails));
-    // POSTing to 'https://fakestoreapi.com/carts because POST requests to \ 
-    // https://fakestoreapi.com/users/7 not working.
-    fetch('https://fakestoreapi.com/carts',{
-      method:"POST",
-      body:JSON.stringify(customerDetails)
-    }).then(res=>{
-      if (res.status == 200) {
-        // manually sends customer details to "/success" as props so \
-        // it can safely erase the checkout slice data
-        props.history.push({
-          pathname: "/success", state: {
-            person: customerDetails,
-            order: store.getState().cart.items.slice()
-          }
-        });
-      } else {
-        props.history.push({pathname: "/failure"});
-      }
-    });
+
+    pushOrder(props, customerDetails, store.getState().cart.items.slice());
+    // fetch('https://fakestoreapi.com/carts',{
+    //   method:"POST",
+    //   body:JSON.stringify(customerDetails)
+    // }).then(res=>{
+    //   if (res.status == 200) {
+    //     // manually sends customer details to "/success" as props so \
+    //     // it can safely erase the checkout slice data
+    //     props.history.push({
+    //       pathname: "/success", state: {
+    //         person: customerDetails,
+    //         order: store.getState().cart.items.slice()
+    //       }
+    //     });
+    //   } else {
+    //     props.history.push({pathname: "/failure"});
+    //   }
+    // });
   }
 
   return (
