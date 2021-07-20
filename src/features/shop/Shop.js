@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { store } from '../../app/store';
 import { LargeThumbnail } from '../../components/large-thumbnail/LargeThumbnail';
@@ -21,6 +21,7 @@ export function Shop() {
   const allApparel = useSelector(selectAllApparel);
   const filteredApparel = useSelector(selectFilteredApparel);
   const dispatch = useDispatch();
+  const [lastSortOrder, setLastSortOrder] = useState();
   const filterByCategories = () => {
     // dispatches an action with a list of filtered category names as the payload
     const boxes = document.getElementsByClassName("checkbox");
@@ -70,10 +71,15 @@ export function Shop() {
     filterByMin();
     filterByMax();
     filterBySearch();
+    sort(lastSortOrder);
+  }
+  const sort = (sortOrder) => {
+    // sorts filteredApparel
+    dispatch(sortPrice(sortOrder));
   }
   const handleSort = (e) => {
-    // sorts filteredApparel
-    dispatch(sortPrice(e.target.closest("button").id))
+    sort(e.target.closest("button").id);
+    setLastSortOrder(e.target.closest("button").id);
   }
 
   useEffect(() => {
@@ -130,11 +136,11 @@ export function Shop() {
             <h3>Sort</h3>
             <div>
               <p>Price:</p>
-              <button id="form-sort-highest-price" class="icon" onClick={handleSort}>
+              <button id="form-sort-highest-price" className="icon" onClick={handleSort}>
                 <img alt={"Highest-to-lowest"} name="sort-highest-to-lowest"
                   src={"/img/sort-down.svg"} />
                </button>
-              <button id="form-sort-lowest-price" class="icon" onClick={handleSort}>
+              <button id="form-sort-lowest-price" className="icon" onClick={handleSort}>
                 <img alt={"Lowest-to-highest"} name="sort-lowest-to-lowest"
                   src={"/img/sort-up.svg"} />
                </button>

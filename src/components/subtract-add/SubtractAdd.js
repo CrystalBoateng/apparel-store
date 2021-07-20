@@ -47,7 +47,7 @@ export function SubtractAdd() {
     }
   }
   return (
-    <span class="subtract-add">
+    <span className="subtract-add">
       <button className="icon remove-from-cart" onClick={handleClick}>
         <img alt={"Remove from Cart"} className="remove-from-cart" 
           name="remove-from-cart" src={"/img/minus.svg"}

@@ -19,25 +19,30 @@ export function Success (props) {
     today.setDate(today.getDate()+7)
   ).toDateString();
   return (
-    <main> 
+    <main id="success-page"> 
       <h1>Success!</h1>
       <p>Your order has been placed.</p>
-      <p>Estimated arrival date: {oneWeekFromNow}</p>
-      <p><span>Name</span>: {p.nameFirst} {p.nameLast}</p>
-      <p><span>Address</span>: {p.addressStreet} / {p.addressCity}, {p.addressState} / {p.addressZip}</p>
-      <p>Credit <span>card</span>: XXXX-XXXX-XXXX-{p.cardNumber.slice(-4)}</p>
-      <p><span>Phone</span>: {p.phone}</p>
-      <p><span>Email</span>: {p.email}</p>
-      {
-        o.map((item, index) => (
-          <SmallThumbnail 
-            key={index}
-            src={item.image}
-            price={item.price}
-            title={item.title}
-          / >
-        )
-      )}
+      <div>
+        <h2>Order Details</h2>
+        <p><span>Estimated arrival date:</span> {oneWeekFromNow}</p>
+        <p><span>Name:</span> {p.nameFirst} {p.nameLast}</p>
+        <p><span>Address:</span> {p.addressStreet} / {p.addressCity}, {p.addressState} / {p.addressZip}</p>
+        <p><span>Credit card:</span> XXXX-XXXX-XXXX-{p.cardNumber.slice(-4)}</p>
+        <p><span>Phone:</span> {p.phone}</p>
+        <p><span>Email:</span> {p.email}</p>
+        <div>
+          {
+            o.map((item, index) => (
+              <SmallThumbnail 
+                key={index}
+                src={item.image}
+                price={item.price}
+                title={item.title}
+              />
+            )
+          )}
+        </div>
+      </div>
     </main>
   );
 }

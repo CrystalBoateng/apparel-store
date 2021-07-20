@@ -12,7 +12,6 @@ export const Header = () => {
         <nav>
           <Link to="/">Home</Link>
           <Link to="/shop">Shop</Link>
-          <Link to="/checkout">Checkout</Link>
           <div id="cart-icon">
             <Link to="/cart">
               <img src={'/img/cart.svg'} />

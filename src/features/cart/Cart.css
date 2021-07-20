@@ -1,10 +1,19 @@
+@media only screen and (min-width: 333px) {
+  #cart-page {
+    background-image: url('../../background-images/closet-sign.jpg');
+  }
+}
+@media only screen and (max-width: 332px) {
+  #cart-page {
+    background-image: url('../../background-images/closet-sign.jpg');
+  }
+}
 #cart-page{
-  -webkit-background-size: cover;
   background-attachment: fixed;
   background-color: #433d3d; /* fallback */
-  background-image: url('../../background-images/closet-sign.jpg');
   background-position: center;
   background-repeat: no-repeat;
+  -webkit-background-size: cover;
   background-size: cover;
 }
 #cart-wrapper {

@@ -1,17 +1,17 @@
 @media only screen and (min-width: 333px) {
   #detail > :nth-child(1) {
-    background-image: url('../../background-images/storefront-large.jpg');
+    background-image: url('../../background-images/bouquet-large.jpg');
   }
 }
 @media only screen and (max-width: 332px) {
   #detail > :nth-child(1) {
-    background-image: url('../../background-images/storefront-small.jpg');
+    background-image: url('../../background-images/bouquet-small.jpg');
     color:  white;
   }
 }
 #detail > :nth-child(1) {
   background-attachment: fixed;
-  background-color: #433d3d; /* fallback */
+  background-color: #eedfc0; /* fallback */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -1,0 +1,49 @@
+
+@media only screen and (min-width: 333px) {
+  #success-page {
+    background-image: url('../../background-images/coffee-large.jpg');
+  }
+}
+@media only screen and (max-width: 332px) {
+  #success-page {
+    color:  white;
+    background-image: url('../../background-images/coffee-small.jpg');
+  }
+}
+#success-page {
+  background-color: #d2b094; /* fallback */
+  padding: 4rem 0 2rem;
+}
+#success-page h1 {
+  margin-bottom: 2rem;
+  color: white;
+  filter: drop-shadow(0 0 6px black);
+}
+#success-page > p {
+  margin: 0 0 4rem;
+  text-align: center;
+  color: white;
+  filter: drop-shadow(0 0 2px black) drop-shadow(0 0 12px black);
+}
+#success-page > div {
+	background-color: white;
+	box-shadow: inset 0 0 9px #e2d8c9;
+	padding: 2rem;
+	border-radius: 19px;
+	margin: 0 2rem;
+}
+#success-page > div > p {
+  margin: 0;
+}
+#success-page > div span {
+  font-weight: 700;
+}
+#success-page > div > :nth-child(2) {
+  margin-bottom: 1rem;
+}
+#success-page > div > :nth-child(8) {
+  margin: 2rem 0;
+}
+#success-page .small-thumbnail {
+  justify-content: left;
+}

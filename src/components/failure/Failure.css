@@ -1,0 +1,14 @@
+#failure-page {
+  background-color: #d2b094;
+  padding: 4rem 0 2rem;
+}
+#failure-page h1 {
+  margin-bottom: 2rem;
+}
+#failure-page p {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+#failure-page a {
+  text-decoration: underline;
+}

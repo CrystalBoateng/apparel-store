@@ -3,13 +3,13 @@ import './Home.css';
 
 export function Home() {
   return (
-    <main id="frontpage">
+    <main id="home-page">
       <section>
         <h1>The Apparel Store</h1>
       </section>
       <section>
-        <h2>Latest Releases</h2>
-        <div class="categories">        
+        <h2>Clothing & Accessories</h2>
+        <div className="categories">        
           <div>
             <img src={"/img/sweater-house-plant.jpg"} />
             <span>Women's Wear</span>

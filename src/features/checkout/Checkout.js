@@ -68,66 +68,76 @@ export function Checkout(props) {
   }
 
   return (
-    <main>
-      <h1>Check Out</h1>
-      <form>
-        <label htmlFor="nameFirst">First name:</label>
-        <input type="text" name="nameFirst" onChange={handleChange}
-          autoFocus placeholder="First name" value={nameFirst}
-        />
-        <label htmlFor="nameLast">Last name:</label>
-        <input type="text" name="nameLast" onChange={handleChange}
-          placeholder="Last name" value={nameLast}
-        />
-        <label htmlFor="addressStreet">Address:</label>
-        <input type="text" name="addressStreet" onChange={handleChange}
-          placeholder="Address" value={addressStreet}
-        />
-        <label htmlFor="addressCity">City:</label>
-        <input type="text" name="addressCity" onChange={handleChange}
-          placeholder="City" value={addressCity}
-        />
-        <label htmlFor="addressState">State:</label>
-        <input type="text" name="addressState" onChange={handleChange}
-          placeholder="State" value={addressState}
-        />
-        <label htmlFor="addressZip">Zip code:</label>
-        <input type="number" name="addressZip" onChange={handleChange}
-          placeholder="Zip code" value={addressZip}
-        />
-        <label htmlFor="cardNumber">Credit Card number:</label>
-        <input type="text" name="cardNumber" onChange={handleChange}
-          placeholder="Credit Card number" value={cardNumber}
-        />
-        <label htmlFor="cardExpiration">Expiration:</label>
-        <input type="text" name="cardExpiration" onChange={handleChange}
-          placeholder="Expiration" value={cardExpiration}
-        />
-        <label htmlFor="cardCvv">CVV:</label>
-        <input type="number" name="cardCvv" onChange={handleChange} 
-          placeholder="CVV" value={cardCvv}
-        />
-        <label htmlFor="phone">Phone number:</label>
-        <input type="tel" name="phone" onChange={handleChange}
-          placeholder="Phone number" value={phone}
-        />
-        <label htmlFor="email">Email address:</label>
-        <input type="email" name="email" onChange={handleChange}
-          placeholder="Email address" value={email}
-        />
-      </form>
-      <button name="submit" onClick={handleClick}>Submit Order</button>
-      <div id="checkout-items-wrapper">
-      {
-        store.getState().cart.items.map((item, index) => (
-          <SmallThumbnail 
-            key={index}
-            src={item.image}
-            price={item.price}
-            title={item.title}
+    <main id="checkout-page">
+      <h1>Checkout</h1>
+      <div>
+        <form>
+          <div>
+            <label htmlFor="nameFirst">First name:</label>
+            <input type="text" name="nameFirst" onChange={handleChange}
+              autoFocus placeholder="First name" required value={nameFirst}
+            />
+            <label htmlFor="nameLast">Last name:</label>
+            <input type="text" name="nameLast" onChange={handleChange}
+              placeholder="Last name" required value={nameLast}
+            />
+          </div>
+          <label htmlFor="addressStreet">Address:</label>
+          <input type="text" name="addressStreet" onChange={handleChange}
+            placeholder="Address" required value={addressStreet}
           />
-        )
-      )}
+          <div>
+            <label htmlFor="addressCity">City:</label>
+              <input type="text" name="addressCity" onChange={handleChange}
+                placeholder="City" required value={addressCity}
+              />
+              <label htmlFor="addressState">State:</label>
+              <input type="text" name="addressState" onChange={handleChange}
+                placeholder="State" required value={addressState}
+              />
+            </div>
+          <label htmlFor="addressZip">Zip code:</label>
+          <input type="number" name="addressZip" onChange={handleChange}
+            placeholder="Zip code" required value={addressZip}
+          />
+          <label htmlFor="cardNumber">Credit Card number:</label>
+          <input type="text" name="cardNumber" onChange={handleChange}
+            placeholder="Credit Card number" required value={cardNumber}
+          />
+          <div>
+            <label htmlFor="cardExpiration">Expiration:</label>
+              <input type="text" name="cardExpiration" onChange={handleChange}
+                placeholder="Expiration" required value={cardExpiration}
+              />
+              <label htmlFor="cardCvv">CVV:</label>
+              <input type="number" name="cardCvv" onChange={handleChange} 
+                placeholder="CVV" required value={cardCvv}
+              />
+            </div>
+          <label htmlFor="phone">Phone number:</label>
+          <input type="tel" name="phone" onChange={handleChange}
+            placeholder="Phone number" required value={phone}
+          />
+          <label htmlFor="email">Email address:</label>
+          <input type="email" name="email" onChange={handleChange}
+            placeholder="Email address" required value={email}
+          />
+        </form>
+        <div>
+          <button name="submit" onClick={handleClick}>Submit Order</button>
+          <div id="checkout-items-wrapper">
+          {
+            store.getState().cart.items.map((item, index) => (
+              <SmallThumbnail 
+                key={index}
+                src={item.image}
+                price={item.price}
+                title={item.title}
+              />
+            )
+          )}
+          </div>
+        </div>
       </div>
     </main>
   );

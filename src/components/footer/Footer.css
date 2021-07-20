@@ -5,12 +5,10 @@ footer {
 	flex-flow: row wrap;
 	background-color: #433d3d;
 	padding: 1rem;
+	align-items: center;
 }
 footer p {
 	margin: 0;
-}
-footer div {
-	margin-top: 5px;
 }
 footer div a {
 	color: #c8c5ba;

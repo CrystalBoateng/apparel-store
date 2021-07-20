@@ -4,7 +4,7 @@ import './LargeThumbnail.css';
 
 export function LargeThumbnail(props) {
   return (
-    <div class="large-thumbnail">
+    <div className="large-thumbnail">
       <a href={"/" + props.id}>
         <img src={props.src} />
         <p>{props.title}</p>

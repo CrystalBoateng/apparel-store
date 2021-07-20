@@ -1,0 +1,24 @@
+.small-thumbnail {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 2rem;
+
+}
+.small-thumbnail img {
+	width: 86px;
+}
+.small-thumbnail > :nth-child(2) {
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin-left: .5rem;
+}
+.small-thumbnail > :nth-child(3) {
+  margin: 0 0 .5rem;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  width: 56%;
+  margin: 0 0 0 .5rem;
+}

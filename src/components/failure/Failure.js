@@ -3,9 +3,9 @@ import './Failure.css';
 
 export const Failure = () => {
   return (
-    <main>
+    <main id="failure-page">
     <h1>There was a problem submitting your order.</h1>
-    <p>Please <Link to="/checkout">return to the checkout page</Link> and try again</p>
+    <p>Please <Link to="/checkout">return to the checkout page</Link> and try again.</p>
     </main>
   );
 }

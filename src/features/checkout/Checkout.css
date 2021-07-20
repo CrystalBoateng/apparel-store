@@ -1,0 +1,48 @@
+#checkout-page h1 {
+  padding: 2rem 4rem 0 4rem ;
+}
+#checkout-page button {
+  display: block;
+  margin: 2rem auto;
+  width: 92.53px;
+}
+#checkout-page {
+  background-attachment: fixed;
+  background-color: white; /* fallback */
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  padding-bottom: 1rem;
+}
+#checkout-page form {
+  background-color: #e2d8c9;
+  border-radius: 19px;
+  filter: drop-shadow(0 0 9px #e2d8c9);
+  height: fit-content;
+  margin: 2rem;
+  padding: 2rem;
+  width: 14rem;
+}
+#checkout-page form > div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+#checkout-page form > input {
+  width: 88%;
+}
+#checkout-page label{
+	display: none;
+}
+#checkout-page input {
+  margin: 0 .5rem 1rem;
+  width: 50%;
+}
+@media only screen and (min-width: 767px) {
+  #checkout-page > div:nth-child(2) {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto;
+  }
+}
