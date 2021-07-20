@@ -9,16 +9,13 @@ import {
   updateMin,
   updateMax,
   updateCategories,
-  clearCategories,
   updateSearch,
   sortPrice,
-  selectAllApparel,
   selectFilteredApparel
 } from './shopSlice';
 import './Shop.css';
 
 export function Shop() {
-  const allApparel = useSelector(selectAllApparel);
   const filteredApparel = useSelector(selectFilteredApparel);
   const dispatch = useDispatch();
   const [lastSortOrder, setLastSortOrder] = useState();
@@ -40,6 +37,8 @@ export function Shop() {
           break;
         case 'form-electronics':
           cat = "electronics"
+          break;
+        default:
           break;
       }
       categories.push({
@@ -71,15 +70,16 @@ export function Shop() {
     filterByMin();
     filterByMax();
     filterBySearch();
-    sort(lastSortOrder);
+    if (lastSortOrder)
+      sort(lastSortOrder);
   }
   const sort = (sortOrder) => {
     // sorts filteredApparel
     dispatch(sortPrice(sortOrder));
+    setLastSortOrder(sortOrder);
   }
   const handleSort = (e) => {
     sort(e.target.closest("button").id);
-    setLastSortOrder(e.target.closest("button").id);
   }
 
   useEffect(() => {
@@ -108,7 +108,7 @@ export function Shop() {
             <div>
               <label htmlFor="form-min" className="hidden">Minimum Value</label>
               <input id="form-min" type="number" name="query" role="search" defaultValue="0" onChange={handleFilter} />
-              <img src={"/img/bar.svg"} id="bar"/>
+              <img alt="" src={"/img/bar.svg"} id="bar"/>
               <label htmlFor="form-max" className="hidden">Maximum Value</label>
               <input id="form-max" type="number" name="query" role="search" defaultValue="999.99" onChange={handleFilter} />
             </div>

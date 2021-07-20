@@ -21,7 +21,7 @@ export const cartSlice = createSlice({
       } else if (action.payload.method === "lastInstance") {
         // loops backwards, removes last instance of the product from cart array
         for (let i = state.items.length-1; i >= 0;  i--) {
-          if (state.items[i].id == action.payload.number) {
+          if (parseInt(state.items[i].id) === parseInt(action.payload.number)) {
             state.items.splice(state.items.length + 1 - i, 1);
             break;
           }
@@ -31,7 +31,7 @@ export const cartSlice = createSlice({
       state.totalItems = state.items.length;
       let subtotal = 0;
       state.items.forEach(i => subtotal += i.price);
-      state.totalPrice = subtotal.toFixed(2);;
+      state.totalPrice = subtotal.toFixed(2);
     },
     addItem: (state, action) => {
       state.items = state.items.concat(action.payload);

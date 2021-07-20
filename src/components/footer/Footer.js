@@ -8,8 +8,8 @@ export const Footer = () => {
       <div>
         <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>
-        <Link to="/checkout">Checkout</Link>
         <Link to="/citations">Citations</Link>
+        <Link to="/checkout">Checkout</Link>
       </div>
     </footer>
   );

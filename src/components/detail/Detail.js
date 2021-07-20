@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { SubtractAdd } from '../subtract-add/SubtractAdd';
 import { fetchOne } from './detailAPI';
 import './Detail.css';
@@ -36,7 +35,7 @@ export class Detail extends React.Component {
         <div></div>
         <h1>{this.state.title}</h1>
         <div>
-          <img src={this.state.image} />
+          <img alt={this.state.title} src={this.state.image} />
           <div>
             <p id="detail-price">${this.state.price}</p>
             <p id="detail-category">{this.state.category}</p>

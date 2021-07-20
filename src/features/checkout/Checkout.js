@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { store } from '../../app/store.js';
 import { SmallThumbnail } from '../../components/small-thumbnail/SmallThumbnail';
-import { updateCustomer, selectCustomer } from './checkoutSlice';
+import { updateCustomer } from './checkoutSlice';
 import { pushOrder } from './checkoutAPI';
 import './Checkout.css';
 
 export function Checkout(props) {
-  const customer = useSelector(selectCustomer);
   const dispatch = useDispatch();
   const [nameFirst, setNameFirst] = useState("Jane");
   const [nameLast, setNameLast] = useState("Smith");
@@ -45,6 +43,8 @@ export function Checkout(props) {
         setPhone(e.target.value); break;
       case 'email':
         setEmail(e.target.value); break;
+      default:
+        break;
     }
   }
   const handleClick = (e) => {

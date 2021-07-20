@@ -11,15 +11,24 @@ export function Home() {
         <h2>Clothing & Accessories</h2>
         <div className="categories">        
           <div>
-            <img src={"/img/sweater-house-plant.jpg"} />
-            <span>Women's Wear</span>
+            <img 
+              alt="Close-up of a tan knitted sweater, plant with small leaves, black container of amber, and corner of a brown hat."
+              src={"/img/sweater-house-plant.jpg"}
+            />
+            <span>Womenswear</span>
           </div>
           <div>
-            <img src={"/img/man.jpg"} />
-            <span>Men's Wear</span>
+            <img 
+              alt="Headshot of man with a beard wearing tan sweater, sunglasses, and gold necklace."
+              src={"/img/man.jpg"}
+            />
+            <span>Menswear</span>
           </div>
           <div>
-            <img src={"/img/earring.jpg"} />
+            <img 
+              alt="Close-up of woman's ear wearing a silver earing, gold necklace, and white shirt."
+              src={"/img/earring.jpg"}
+            />
             <span>Jewelery</span>
           </div>
         </div>

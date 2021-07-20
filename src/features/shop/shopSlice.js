@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   allItems: [],
-  filteredItems: [{"id":0,"title":"","price":"","description":"","category":"","image":"https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg"}]
+  filteredItems: [{"id":0,"title":"","price":"","description":"","category":"","image":"/img/loading.gif"}]
 };
 
 export const shopSlice = createSlice({
@@ -30,7 +30,6 @@ export const shopSlice = createSlice({
         (item) => (action.payload.indexOf(item.category) >= 0)
       );
     },
-    clearCategories: (state) => {},
     updateSearch: (state, action) => {
       state.filteredItems = state.filteredItems.filter(
         (item) => (item.title.toLowerCase()
@@ -54,9 +53,8 @@ export const shopSlice = createSlice({
   },
 });
 
-export const { fetchAllItems, fillFilteredItems, updateMin, updateMax, updateCategories, clearCategories, updateSearch, sortPrice } = shopSlice.actions;
+export const { fetchAllItems, fillFilteredItems, updateMin, updateMax, updateCategories, updateSearch, sortPrice } = shopSlice.actions;
 
-export const selectAllApparel = (state) => state.shop.allItems;
 export const selectFilteredApparel = (state) => state.shop.filteredItems;
 
 export default shopSlice.reducer;

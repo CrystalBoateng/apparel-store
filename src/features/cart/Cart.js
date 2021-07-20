@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { store } from '../../app/store.js';
 import { selectTotalPrice } from '../cart/cartSlice';
 import { LargeThumbnail } from '../../components/large-thumbnail/LargeThumbnail';
 import './Cart.css';
 
 export function Cart(props) {
-  const dispatch = useDispatch();
   const cartTotal = useSelector(selectTotalPrice);
   return (
     <main id="cart-page">

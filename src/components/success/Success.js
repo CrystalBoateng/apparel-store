@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { store } from '../../app/store';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { SmallThumbnail } from '../../components/small-thumbnail/SmallThumbnail';
 import { clearCart } from '../../features/cart/cartSlice';

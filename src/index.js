@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
@@ -13,10 +13,9 @@ import { Checkout } from './features/checkout/Checkout';
 import { Detail } from './components/detail/Detail';
 import { Success } from './components/success/Success';
 import { Failure } from './components/failure/Failure';
+import { Citations } from './components/citations/Citations';
 import { fetchAll } from './features/shop/shopAPI';
 import './index.css';
-
-const Citations = () => <h1>Citations</h1>;
 
 class App extends React.Component {
   constructor(props) {

@@ -6,7 +6,7 @@ export function LargeThumbnail(props) {
   return (
     <div className="large-thumbnail">
       <a href={"/" + props.id}>
-        <img src={props.src} />
+        <img alt={props.title} src={props.src} />
         <p>{props.title}</p>
         <p>${props.price}</p>
         <p>{props.category}</p>

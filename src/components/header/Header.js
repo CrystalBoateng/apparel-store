@@ -14,7 +14,7 @@ export const Header = () => {
           <Link to="/shop">Shop</Link>
           <div id="cart-icon">
             <Link to="/cart">
-              <img src={'/img/cart.svg'} />
+              <img alt="shopping cart icon" src={'/img/cart.svg'} />
               <span>{cart}</span>
             </Link>
           </div>

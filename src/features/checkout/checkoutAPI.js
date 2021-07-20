@@ -7,7 +7,7 @@ export const pushOrder = (props, customerInfo, orderInfo) => {
       body:JSON.stringify(customerInfo)
     })
       .then(res=>{
-        if (res.status == 200) {
+        if (res.status === 200) {
           // manually sends customer details to "/success" as props so \
           // that it can safely erase the checkout slice data.
           props.history.push({
