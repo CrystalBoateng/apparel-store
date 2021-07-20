@@ -23,7 +23,6 @@ export function SubtractAdd() {
       productId = document.getElementById("detail-id").getAttribute("data-id")
     }
     const action = e.target.closest("button").firstChild.name;
-
     // adds or removes it from the cart
     if (action === "remove-from-cart") {
         if (userIsOnCartPage) {
@@ -37,7 +36,6 @@ export function SubtractAdd() {
           dispatch(removeItem({method: "lastInstance", number: productId}));
         }
     }
-      // console.log(store.getState().cart.items)
     if (action === "add-to-cart") {
       // pulls that item's details from the server and adds them to the store
       fetchOne("/" + productId)
@@ -49,15 +47,15 @@ export function SubtractAdd() {
     }
   }
   return (
-    <span>
-      <button className="remove-from-cart" onClick={handleClick}>
+    <span class="subtract-add">
+      <button className="icon remove-from-cart" onClick={handleClick}>
         <img alt={"Remove from Cart"} className="remove-from-cart" 
-          name="remove-from-cart" src={"/img/placeholder.png"}
+          name="remove-from-cart" src={"/img/minus.svg"}
         />
        </button>
-      <button className="add-to-cart" onClick={handleClick}>
+      <button className="icon add-to-cart" onClick={handleClick}>
         <img alt={"Add to Cart"} className="add-to-cart" 
-          name="add-to-cart" src={"/img/placeholder.png"}
+          name="add-to-cart" src={"/img/plus.svg"}
         />
        </button>
     </span>

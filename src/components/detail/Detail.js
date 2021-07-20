@@ -32,14 +32,19 @@ export class Detail extends React.Component {
   }
   render() {
     return (
-      <main> 
+      <main id="detail">
+        <div></div>
         <h1>{this.state.title}</h1>
-        <img src={this.state.image} />
-        <p id="detail-price">{this.state.price}</p>
-        <p id="detail-category">{this.state.category}</p>
-        <p id="detail-description">{this.state.description}</p>
-        <p id="detail-id" data-id={this.state.id}>Product number: {this.state.id}</p>
-        <SubtractAdd />
+        <div>
+          <img src={this.state.image} />
+          <div>
+            <p id="detail-price">${this.state.price}</p>
+            <p id="detail-category">{this.state.category}</p>
+            <p id="detail-description">{this.state.description}</p>
+            <p id="detail-id" data-id={this.state.id}>Product # {this.state.id}</p>
+            <SubtractAdd />
+          </div>
+        </div>
       </main>
     );
   }

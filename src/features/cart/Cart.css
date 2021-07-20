@@ -1,0 +1,66 @@
+#cart-page{
+  -webkit-background-size: cover;
+  background-attachment: fixed;
+  background-color: #433d3d; /* fallback */
+  background-image: url('../../background-images/closet-sign.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#cart-wrapper {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 19px 19px 0 0;
+  margin: 0 2rem 0;
+}
+#cart-page h1 {
+  padding: 4rem 4rem 0 4rem ;
+}
+#cart-page > :nth-child(2) {
+  display: flex;
+  margin: 0 auto;
+  width: 300px;
+}
+#cart-page > :nth-child(2) p {
+  font-size: 3rem;
+  font-family: 'Cinzel', 'Garamond', serif;
+}
+#cart-page > :nth-child(2) span {
+  color: gray;
+}
+/*#cart-wrapper .large-thumbnails {
+  width: 100%;
+}*/
+
+
+
+
+
+@media only screen and (min-width: 767px) {
+  #cart-page > div:nth-child(2) {
+    width: 600px;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #cart-page > :nth-child(2) {
+    display: flex;
+    margin: 0 auto;
+    width: 300px;
+  }
+
+  /* List of items in cart */
+  #cart-wrapper {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto;
+  }
+  #cart-wrapper div {
+    padding: 1rem;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 991px) {
+  #cart-wrapper {
+    grid-template-columns: auto auto auto;
+  }
+}

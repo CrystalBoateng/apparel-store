@@ -64,25 +64,7 @@ export function Checkout(props) {
     }
     // dispatches customer info to the store
     dispatch(updateCustomer(customerDetails));
-
     pushOrder(props, customerDetails, store.getState().cart.items.slice());
-    // fetch('https://fakestoreapi.com/carts',{
-    //   method:"POST",
-    //   body:JSON.stringify(customerDetails)
-    // }).then(res=>{
-    //   if (res.status == 200) {
-    //     // manually sends customer details to "/success" as props so \
-    //     // it can safely erase the checkout slice data
-    //     props.history.push({
-    //       pathname: "/success", state: {
-    //         person: customerDetails,
-    //         order: store.getState().cart.items.slice()
-    //       }
-    //     });
-    //   } else {
-    //     props.history.push({pathname: "/failure"});
-    //   }
-    // });
   }
 
   return (

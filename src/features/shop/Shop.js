@@ -89,60 +89,75 @@ export function Shop() {
   }, []);
 
   return (
-    <div>
+    <div id="shop-page">
       <h1>Shop</h1>
-      <aside id="alter-list">
-        <h2>Alter List</h2>
+      <div>
+        <aside id="alter-list">
+          <h2>Alter List</h2>
 
-        <label htmlFor="form-search" className="hidden">Search</label>
-        <input id="form-search" type="search" name="query" role="search" autoFocus placeholder="Search..." onChange={handleFilter} />
-        
-        <section>
-          <h3>Filter</h3>
-          <label htmlFor="form-min" className="hidden">Minimum Value</label>
-          <input id="form-min" type="number" name="query" role="search" defaultValue="0" onChange={handleFilter} />
-          <hr />
-          <label htmlFor="form-max" className="hidden">Maximum Value</label>
-          <input id="form-max" type="number" name="query" role="search" defaultValue="999.99" onChange={handleFilter} />
+          <label htmlFor="form-search" className="hidden">Search</label>
+          <input id="form-search" type="search" name="query" role="search" placeholder="Search..." onChange={handleFilter} />
+          <section id="filter-wrapper">
+            <h3>Filter</h3>
+            <div>
+              <label htmlFor="form-min" className="hidden">Minimum Value</label>
+              <input id="form-min" type="number" name="query" role="search" defaultValue="0" onChange={handleFilter} />
+              <img src={"/img/bar.svg"} id="bar"/>
+              <label htmlFor="form-max" className="hidden">Maximum Value</label>
+              <input id="form-max" type="number" name="query" role="search" defaultValue="999.99" onChange={handleFilter} />
+            </div>
+            <div>
+              <div>
+                <input type="checkbox" className="checkbox" id="form-mens-clothing" name="mens-clothing" onChange={handleFilter} />
+                <label htmlFor="form-mens-clothing">Men's Clothing</label>
+              </div>
+              <div>
+                <input type="checkbox" className="checkbox" id="form-womens-clothing" name="womens-clothing" onChange={handleFilter} />
+                <label htmlFor="form-womens-clothing">Women's Clothing</label>
+              </div>
+              <div>
+                <input type="checkbox" className="checkbox" id="form-jewelery" name="jewelery" onChange={handleFilter} />
+                <label htmlFor="form-jewelery">Jewelery</label>
+              </div>
+              <div>
+                <input type="checkbox" className="checkbox" id="form-electronics" name="electronics" onChange={handleFilter} />
+                <label htmlFor="form-electronics">electronics</label>
+              </div>
+            </div>
+          </section>
 
-          <input type="checkbox" className="checkbox" id="form-mens-clothing" name="mens-clothing" onChange={handleFilter} />
-          <label htmlFor="form-mens-clothing">Men's Clothing</label>
-          <input type="checkbox" className="checkbox" id="form-womens-clothing" name="womens-clothing" onChange={handleFilter} />
-          <label htmlFor="form-womens-clothing">Women's Clothing</label>
-          <input type="checkbox" className="checkbox" id="form-jewelery" name="jewelery" onChange={handleFilter} />
-          <label htmlFor="form-jewelery">Jewelery</label>
-          <input type="checkbox" className="checkbox" id="form-electronics" name="electronics" onChange={handleFilter} />
-          <label htmlFor="form-electronics">electronics</label>
-        </section>
-
-        <section>
-          <h3>Sort</h3>
-          <button id="form-sort-highest-price" onClick={handleSort}>
-            <img alt={"Highest-to-lowest"} name="sort-highest-to-lowest"
-              src={"/img/placeholder.png"} />
-           </button>
-          <button id="form-sort-lowest-price" onClick={handleSort}>
-            <img alt={"Lowest-to-highest"} name="sort-lowest-to-lowest"
-              src={"/img/placeholder.png"} />
-           </button>
-        </section>
-      </aside>
+          <section id="sort-wrapper">
+            <h3>Sort</h3>
+            <div>
+              <p>Price:</p>
+              <button id="form-sort-highest-price" class="icon" onClick={handleSort}>
+                <img alt={"Highest-to-lowest"} name="sort-highest-to-lowest"
+                  src={"/img/sort-down.svg"} />
+               </button>
+              <button id="form-sort-lowest-price" class="icon" onClick={handleSort}>
+                <img alt={"Lowest-to-highest"} name="sort-lowest-to-lowest"
+                  src={"/img/sort-up.svg"} />
+               </button>
+             </div>
+          </section>
+        </aside>
       
-      <main id="products" className="thumbnails">
-        <h2>Products</h2>
-        {
-          filteredApparel.map((item, index) => (
-            <LargeThumbnail
-              key={index}
-              id={item.id}
-              src={item.image}
-              title={item.title}
-              price={item.price}
-              category={item.category}
-            />
-          )
-        )}
-      </main>
+        <main id="products" className="thumbnails">
+          <h2>Products</h2>
+          {
+            filteredApparel.map((item, index) => (
+              <LargeThumbnail
+                key={index}
+                id={item.id}
+                src={item.image}
+                title={item.title}
+                price={item.price}
+                category={item.category}
+              />
+            )
+          )}
+        </main>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,19 @@
+footer {
+	justify-content: space-between;
+	color: #c8c5ba;
+	display: flex;
+	flex-flow: row wrap;
+	background-color: #433d3d;
+	padding: 1rem;
+}
+footer p {
+	margin: 0;
+}
+footer div {
+	margin-top: 5px;
+}
+footer div a {
+	color: #c8c5ba;
+	margin-right: 1rem;
+	text-decoration: none;
+}

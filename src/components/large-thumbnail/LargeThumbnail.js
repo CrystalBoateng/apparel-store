@@ -4,9 +4,9 @@ import './LargeThumbnail.css';
 
 export function LargeThumbnail(props) {
   return (
-    <div>
+    <div class="large-thumbnail">
       <a href={"/" + props.id}>
-        <img src={props.src} width="100px"/>
+        <img src={props.src} />
         <p>{props.title}</p>
         <p>${props.price}</p>
         <p>{props.category}</p>

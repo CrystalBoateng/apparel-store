@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
-import { Home } from './Home';
+import { Home } from './components/home/Home';
 import { Shop } from './features/shop/Shop';
 import { Cart } from './features/cart/Cart';
 import { Checkout } from './features/checkout/Checkout';

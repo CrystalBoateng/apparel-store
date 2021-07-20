@@ -1,0 +1,38 @@
+.large-thumbnail {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem 1rem 0;
+  text-align: center;
+}
+.large-thumbnail:hover {
+  filter: drop-shadow(0 0 9px #e2d8c9);
+}
+.large-thumbnail *:hover {
+  filter: none;
+}
+.large-thumbnail a > :nth-child(1) {
+  width: 111px;
+}
+.large-thumbnail a > :nth-child(2) {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.large-thumbnail a > :nth-child(4) {
+  font-style: italic;
+  font-size: .9rem;
+  color: #433d3d;
+  margin-top: 1rem;
+}
+.large-thumbnail a p {
+  color: black;
+  margin:  0 0 .5rem;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  width: 100%; 
+}
+@media only screen and (min-width: 767px) {
+  .large-thumbnail {
+    max-width: 14rem;
+  }
+}

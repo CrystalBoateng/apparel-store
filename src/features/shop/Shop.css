@@ -1,13 +1,101 @@
-h2, .hidden {
-	display: none;
+@media only screen and (min-width: 333px) {
+  #shop-page h1 {
+    background-image: url('../../background-images/sitting-on-floor-large.jpg');
+  }
 }
+@media only screen and (max-width: 332px) {
+  #shop-page h1 {
+    color:  white;
+    background-image: url('../../background-images/sitting-on-floor-small.jpg');
+  }
+}
+#shop-page h1 {
+  /*background-attachment: fixed;*/
+  background-color: #433d3d; /* fallback */
+  color: white;
+  padding: 8rem 8rem 2.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  border-bottom: none;
+  height: 7.5rem;
 
-section button {
-  width: 20px;
-  height: 20px;
 }
-    
-section button * {
+#shop-page aside {
+  background-color: #d2b094;
+  border-radius: 5px;
+  height: max-content;
+  padding: .25rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+#shop-page h2 {
+  display: none;
+}
+#shop-page aside h3 {
+  text-align: center;
+  margin:  0 0 1rem;
+}
+aside section {
+  background-color: white;
+  border-radius: 5px;
+  margin-top: .25rem;
+  padding: 0.5rem;
+}
+#form-search {
+  width: 95%;
+}
+#filter-wrapper div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+#filter-wrapper > :nth-child(2) input {
+  max-width: 4rem;
+}
+#filter-wrapper > :nth-child(3) {
+  margin-top: .5rem;
+}
+#bar {
+  transform: rotate(90deg);
   width: 20px;
-  height: 20px;
+}
+#sort-wrapper > :nth-child(2){
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+#sort-wrapper p {
+  font-weight: 700;
+}
+#shop-page main {
+  padding: 1rem;
+}
+@media only screen and (min-width: 767px) {
+  #shop-page > div {
+    display: grid;
+    grid-template-columns: 16rem auto;
+  }
+  #filter-wrapper div {
+    justify-content: space-evenly;
+  }
+  #shop-page aside {
+    grid-column: 1 / 2;
+  }
+  #shop-page main {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  #shop-page main div {
+    padding: 1rem;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 991px) {
+  #shop-page main {
+    grid-template-columns: auto auto auto;
+  }
 }

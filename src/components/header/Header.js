@@ -1,22 +1,25 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectCart } from '../../features/cart/cartSlice';
+import { selectTotalItems } from '../../features/cart/cartSlice';
 import './Header.css';
 
 export const Header = () => {
-  const cart = useSelector(selectCart);
+  const cart = useSelector(selectTotalItems);
   return (
     <header>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/shop">Shop</Link>
-        <Link to="/checkout">Checkout</Link>
-      </nav>
-      <div id="cart-icon">
-        <Link to="/cart">
-          cart_icon_img
-          {cart}
-        </Link>
+      <Link to="/" id="site-logo">The Apparel Store</Link>
+      <div id="header-right-side">
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/shop">Shop</Link>
+          <Link to="/checkout">Checkout</Link>
+          <div id="cart-icon">
+            <Link to="/cart">
+              <img src={'/img/cart.svg'} />
+              <span>{cart}</span>
+            </Link>
+          </div>
+        </nav>
       </div>
     </header>
   );
