@@ -1,5 +1,4 @@
 # E-commerce web app
-Challenge sent by: Jabari Wright
 
 ## How to Run
 1. Install React.

@@ -16,6 +16,10 @@ export class Detail extends React.Component {
     };
   }
   componentDidMount() {
+    // sets the default image to a loading gif.
+    this.setState({
+      image: "/img/loading.gif"
+    });
     // pulls detail view data from the API, for the item in the URL path
     fetchOne(this.props.location.pathname)
       .then((data)=>{ 
