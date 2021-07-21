@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './SmallThumbnail.css';
 
 export function SmallThumbnail(props) {
@@ -8,4 +9,16 @@ export function SmallThumbnail(props) {
       <p>{props.title}</p>
     </div>
   );
+}
+
+SmallThumbnail.defaultProps = {
+  price: 0,
+  src: "",
+  title: "",
+}
+
+SmallThumbnail.propTypes = {
+  price: PropTypes.number,
+  src: PropTypes.string,
+  title: PropTypes.string,
 }

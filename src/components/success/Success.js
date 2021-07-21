@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { SmallThumbnail } from '../../components/small-thumbnail/SmallThumbnail';
 import { clearCart } from '../../features/cart/cartSlice';
 import { clearCustomer } from '../../features/checkout/checkoutSlice';
@@ -44,4 +45,33 @@ export function Success (props) {
       </div>
     </main>
   );
+}
+
+Success.defaultProps = {
+  person: {
+    nameFirst: "An error occured while processing your order. Please contact customer support.",
+    nameLast: "",
+    addressStreet: "",
+    addressCity: "",
+    addressState: "",
+    addressZip: "",
+    cardNumber: "",
+    cardExpiration: "",
+    cardCvv: "",
+    phone: "",
+    email: "",
+  },
+  order: [{
+      "id":0,
+      "title":"",
+      "price":0,
+      "description":"",
+       "category":"",
+      "image":""
+    }],
+}
+
+Success.propTypes = {
+  person: PropTypes.object,
+  order: PropTypes.object,
 }

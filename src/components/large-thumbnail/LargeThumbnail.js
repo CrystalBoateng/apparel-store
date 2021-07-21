@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { SubtractAdd } from '../subtract-add/SubtractAdd';
 import './LargeThumbnail.css';
 
@@ -14,4 +15,20 @@ export function LargeThumbnail(props) {
       <SubtractAdd />
     </div>
   );
+}
+
+LargeThumbnail.defaultProps = {
+  category: "",
+  id: 0,
+  price: 0,
+  src: "",
+  title: "",
+}
+
+LargeThumbnail.propTypes = {
+  category: PropTypes.string,
+  id: PropTypes.number,
+  price: PropTypes.number,
+  src: PropTypes.string,
+  title: PropTypes.string,
 }
